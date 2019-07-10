@@ -1,0 +1,107 @@
+<div class="container" style="padding: 20px 0px">
+    <div class=" form">
+        <form #new_user_form = 'ngForm' (ngSubmit)='onSubmitTemplateBased()' style="width: 50%">
+            <!-- FirstName -->
+            <label for="">FirstName</label>
+            <input type="text" name="f_name" value="" class="form-control" required #f_name="ngModel" [(ngModel)]='new_user.f_name'>
+            <br>
+            <div class="alert alert-danger" *ngIf="f_name.invalid && f_name.touched">
+                <div *ngIf="f_name.errors.required">
+                    FirstName is required
+                </div>
+            </div>
+            <!-- SecondName -->
+            <label for="">SecondName</label>
+            <input type="text" name="s_name" value="" class="form-control" required #s_name="ngModel" [(ngModel)]='new_user.s_name'>
+            <br>
+            <div class="alert alert-danger" *ngIf="s_name.invalid && s_name.touched">
+                <div *ngIf="s_name.errors.required">
+                    SecondName is required
+                </div>
+            </div>
+            <!-- Email -->
+            <label for="">Email</label>
+            <input type="email" name="email" value="" class="form-control" email required #email="ngModel" [(ngModel)]='new_user.email'>
+            <br>
+            <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+                <div *ngIf="email.errors.required">
+                    Email is required
+                </div>
+                <div *ngIf="email.errors.email">
+                    This is not an email
+                </div>
+            </div>
+            <!-- Password -->
+            <label for="">Password</label>
+            <input type="password" name="pass" value="" class="form-control" required minlength="8" #pass="ngModel" [(ngModel)]='new_user.pass'>
+            <br>
+            <div class="alert alert-danger" *ngIf="pass.invalid && pass.touched">
+                <div *ngIf="pass.errors.required">
+                    Password is required
+                </div>
+                <div *ngIf="pass.errors.minlength">
+                    Password must be longer than 8 characters
+                </div>
+            </div>
+            <!-- Address -->
+            <label for="">Address</label>
+            <input type="text" name="adress" value="" class="form-control" required #adress="ngModel" [(ngModel)]='new_user.adress'>
+            <br>
+            <div class="alert alert-danger" *ngIf="adress.invalid && adress.touched">
+                <div *ngIf="adress.errors.required">
+                    Address is required
+                </div>
+            </div>
+            <!-- Phone -->
+            <label for="">Phone</label>
+            <input type="text" name="phone" value="" class="form-control" required #phone="ngModel" [(ngModel)]='new_user.phone'>
+            <br>
+            <div class="alert alert-danger" *ngIf="phone.invalid && phone.touched">
+                <div *ngIf="phone.errors.required">
+                    Phone is required
+                </div>
+            </div>
+            <!-- Gender -->
+            <label for="">Gender</label>
+            <select class="" name="gender"  class="form-control" required #gender="ngModel" [(ngModel)]='new_user.gender'>
+                <option value="male">Male</option>
+                <option value="female">female</option>
+            </select>
+            <br>
+            <div class="alert alert-danger" *ngIf="gender.invalid && gender.touched">
+                <div *ngIf="gender.errors.required">
+                    Gender is required
+                </div>
+            </div>
+
+            <!--<button type="submit" name="button" class="btn btn-primary" >Submit</button>-->
+
+            <!-- WTF !!!!!!!!!!!!! -->
+            <div *ngIf="f_name.errors ||
+                        s_name.errors ||
+                        email.errors ||
+                        pass.errors ||
+                        adress.errors ||
+                        phone.errors ||
+                        gender.errors; else all_ok">
+                <button type="submit" name="button" class="btn btn-primary" disabled>Submit</button>
+            </div>
+            <ng-template #all_ok>
+                <button type="submit" name="button" class="btn btn-primary" >Submit</button>
+            </ng-template>
+        </form>
+        <br>
+    </div>
+    <a [routerLink]="['/list']">Get All users</a>
+</div>
+<!--
+<app-table
+    [f_name]='new_user.f_name'
+    [s_name]='new_user.s_name'
+    [email]='new_user.email'
+    [pass]='new_user.pass'
+    [address]='new_user.adress'
+    [phone]='new_user.phone'
+    [gender]='new_user.gender'>
+</app-table>
+-->

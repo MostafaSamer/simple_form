@@ -1,0 +1,44 @@
+<!--
+<h1>{{f_name}}</h1>
+<h1>{{s_name}}</h1>
+<h1>{{email}}</h1>
+<h1>{{pass}}</h1>
+<h1>{{address}}</h1>
+<h1>{{phone}}</h1>
+<h1>{{gender}}</h1>
+-->
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>gender</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of data">
+            <td>{{user.f_name}}</td>
+            <td>{{user.s_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.adress}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.gender}}</td>
+        </tr>
+      <!--<tr>
+          <td>{{f_name}}</td>
+          <td>{{s_name}}</td>
+          <td>{{email}}</td>
+          <td>{{address}}</td>
+          <td>{{phone}}</td>
+          <td>{{gender}}</td>
+      </tr>-->
+    </tbody>
+  </table>
+  <br><br>
+<div class="text-center">
+    <a [routerLink]="['']">Submit another user</a>
+</div>
