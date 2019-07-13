@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import { DataTableModule } from "angular-6-datatable";
 
 import { ShareDataService } from './share-data.service'
 
@@ -28,6 +28,7 @@ import { ListUserComponent } from './user/form/list-user/list-user.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    DataTableModule,
     RouterModule.forRoot([
         {
             path: '',

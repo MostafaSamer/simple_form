@@ -8,7 +8,7 @@
 <h1>{{gender}}</h1>
 -->
 
-<table class="table">
+<table class="table" datatable [mfRowsOnPage]="5" [mfData]="data" #mf="mfDataTable" id="reload_t">
     <thead>
       <tr>
         <th>Firstname</th>
@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of data">
+        <tr *ngFor="let user of mf.data">
             <td>{{user.f_name}}</td>
             <td>{{user.s_name}}</td>
             <td>{{user.email}}</td>
@@ -28,6 +28,9 @@
             <td>{{user.phone}}</td>
             <td>{{user.gender}}</td>
         </tr>
+        <div class="text-center">
+            <mfBootstrapPaginator [rowsOnPageSet]=""></mfBootstrapPaginator>
+        </div>
       <!--<tr>
           <td>{{f_name}}</td>
           <td>{{s_name}}</td>
@@ -42,3 +45,4 @@
 <div class="text-center">
     <a [routerLink]="['']">Submit another user</a>
 </div>
+<!--[mfRowsOnPage]="5"-->

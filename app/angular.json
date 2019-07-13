@@ -86,7 +86,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["../node_modules/jquery/dist/jquery.min.js"]
           }
         },
         "lint": {
